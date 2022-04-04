@@ -1,7 +1,6 @@
 import os.path
 from properties import Properties
 
-
 def FindBadDataBirdTest():
     BadData = []
 
@@ -13,11 +12,11 @@ def FindBadDataBirdTest():
 
     return BadData
 
+#Used this function to create the BadData variable in properties
 def FindBadDataBirdTrain():
     BadData = []
     birdProperties = Properties()
     fileNames = birdProperties.getBirdFileNames()
-
 
     for i in range(0,199):
         birdFileName = birdProperties.getBirdFileNames()[i]
@@ -29,9 +28,17 @@ def FindBadDataBirdTrain():
 
     return BadData
 
+#Used this function to create the BirdSpeciesNames variable in properties
+def getBirdNames():
+    birdProperties = Properties()
+    BirdNames = birdProperties.getBirdFileNames()
 
+    for i in range(0,200):
+        birdNameFull = BirdNames[i][4:]
+        birdNameClean = birdNameFull.replace("_", " ")
+        BirdNames[i] = birdNameClean
+    
 
 if __name__ == '__main__':
-    print(FindBadDataBirdTrain())
-
-
+    getBirdNames()
+    #print(FindBadDataBirdTrain())
