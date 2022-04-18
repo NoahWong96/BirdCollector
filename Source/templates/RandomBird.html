@@ -3,20 +3,50 @@
 <link rel="stylesheet" href = "styles.css">	
 <head>
     <title>Random Bird</title> 
+    <meta name = "author", content = "Noah Wong">
+    <meta name = "description", content = "Page presents 
+        another picture of a birdwhenever the page is
+         refreshed" >
+    
 </head>
 <section class="header"?>
     <h1>Random Bird</h1>
-    <p> Refresh for a new Bird</p>
+    <p class = birdname> Press Button for a new Bird</p>
 </section>
 
 <section class = "image">
-    <img src="images/randombird.jpg" alt="random bird"
+    <img id = "birdPic" src="images/random/1.jpg" alt="random bird"
 </section>
+
 
 <section>
-    <p class = "birdname">Yellow Warbler </p>
+
+    <p><a href="BOTD.html">Bird of the Day</a> </p>
+    
 </section>
 
+<script>
+    function refreshPage() {
+    
+        var newPicNumber = Math.floor(Math.random()*50) + 1;
+        var newPic = newPicNumber.toString();
+        var pictureSource = document.getElementById("birdPic").src
+
+        if (pictureSource.includes(newPic + ".jpg")) {
+            newPic = "images/random/1.jpg"
+        } else {
+            newPic = "images/random/" + newPic + ".jpg";
+    
+        }
+
+        document.getElementById("birdPic").src = newPic;
+    }
+</script>
+
+<button class = button type="button" onclick="refreshPage()"> New Bird</button>
+
+
+<!-- TODO: format this section, create a new .css file for it --> 
     <style>
         img {
             width: 500px;
@@ -34,6 +64,11 @@
             font-weight: 100;
             font-size: 2.8em;
             font-family: "CopperPlate";
+        }
+        .button{ 
+            background-color:#66101F;
+            color: #AF929D;
+            font-size: 16px;
         }
         .header{
             width: 100%;
