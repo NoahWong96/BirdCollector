@@ -2,7 +2,7 @@
 <html lang="en">
 <link rel="stylesheet" href = "styles.css">	
 <head>
-	<title>Home page</title>
+	<title>Bird of the Day</title>
 	
 </head>
 	<section class = "header">
@@ -10,11 +10,28 @@
 		<h1 class = "button"> </h1>
 	</section>
 
-	<body>
-		<img src="images/BOTD.jpg" alt="bird of the day">
-		<p class = "birdname"> Black Footed Albatross </p>
+	<body onload="loadBird()">
+		<img id = "birdPic" src="images/BOTD/monday.jpg" alt="bird of the day">
+		
 	</body>
 
+	<script>
+		function loadBird() {
+			const date = new Date();
+			let day = date.getDay();
+			var dayDictionary = {
+				0: "sunday",
+				1: "monday",
+				2: "tuesday",
+				3: "wednesday",
+				4: "thursday",
+				5: "friday",
+				6: "saturday"
+			};
+			let dayName = dayDictionary[day];
+			document.getElementById("birdPic").src = "images/BOTD/" + dayName +".jpg";
+		}
+	</script>
 
 	<style>
 		img {
@@ -37,7 +54,7 @@
 		}
 		.header{
 			width: 100%;
-			padding:40px 0px 0;
+			padding:20px 0px 0;
 			text-align:start;
 			background: #D2D6EF;
 			border-radius: 10px;
